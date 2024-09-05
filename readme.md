@@ -52,11 +52,3 @@ Make sure Docker and Docker Compose are installed on your system.
    git clone https://github.com/JyothiSwaroopReddy07/django-chart-visualization.git
    cd django-chart-visualization
    docker-compose up --build
-
-
-
-
-
-
-
-# django-chart-visualization
