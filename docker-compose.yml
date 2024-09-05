@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./chartAPI  # Point to the correct backend folder
+      dockerfile: Dockerfile.backend
+    container_name: django_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./chartAPI:/app  # Use the correct backend folder for volume
+
+  frontend:
+    build:
+      context: ./chart-ui  # Point to the correct frontend folder
+      dockerfile: Dockerfile.frontend
+    container_name: nextjs_frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - BACKEND_PUBLIC_URL=http://127.0.0.1:8000
+    volumes:
+      - ./chart-ui:/src  # Use the correct frontend folder for volume
+    depends_on:
+      - backend
+
